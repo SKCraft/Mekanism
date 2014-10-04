@@ -1,5 +1,7 @@
 package mekanism.generators.common.tile;
 
+import java.util.EnumSet;
+
 import mekanism.api.Coord4D;
 import mekanism.common.IBoundingBlock;
 import mekanism.common.Mekanism;
@@ -7,6 +9,7 @@ import mekanism.common.util.ChargeUtils;
 import mekanism.common.util.MekanismUtils;
 import mekanism.generators.common.MekanismGenerators;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.common.Optional.Method;
 import dan200.computercraft.api.lua.ILuaContext;
 import dan200.computercraft.api.peripheral.IComputerAccess;
@@ -40,6 +43,14 @@ public class TileEntityWindTurbine extends TileEntityGenerator implements IBound
 				setActive(false);
 			}
 		}
+	}
+	
+	@Override
+	public EnumSet<ForgeDirection> getOutputtingSides()
+	{
+		EnumSet<ForgeDirection> set = EnumSet.of(ForgeDirection.getOrientation(facing));
+		set.add(ForgeDirection.DOWN);
+		return set;
 	}
 
 	/** Determines the current output multiplier, taking sky visibility and height into account. **/
