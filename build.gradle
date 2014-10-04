@@ -47,7 +47,7 @@ dependencies {
 }
 
 version = "${config.minecraft_version}-${config.mod_version}." + (System.env.BUILD_NUMBER ?: "homebaked")
-archivesBaseName = "MekanismAll"
+archivesBaseName = "MekanismAll-SKCraft"
 libsDirName = "../output"
 distsDirName = "../output"
 
@@ -65,7 +65,7 @@ processResources
 }
 
 task coreJar(type: Jar) {
-    baseName = 'Mekanism'
+    baseName = 'Mekanism-SKCraft'
 
     manifest {
         attributes 'FMLCorePlugin': 'mekanism.common.asm.LoadingHook'
@@ -83,7 +83,7 @@ task coreJar(type: Jar) {
 }
 
 task toolsJar(type: Jar) {
-    baseName = 'MekanismTools'
+    baseName = 'MekanismTools-SKCraft'
 
     from('etc/tools') {
         include '*.info'
@@ -96,7 +96,7 @@ task toolsJar(type: Jar) {
 }
 
 task generatorsJar(type: Jar) {
-    baseName = 'MekanismGenerators'
+    baseName = 'MekanismGenerators-SKCraft'
 
     from('etc/generators') {
         include '*.info'
